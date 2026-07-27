@@ -1,0 +1,71 @@
+.contact-section {
+  background: linear-gradient(180deg, transparent, rgba(124,58,237,0.04) 60%, transparent);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+  max-width: 720px;
+}
+
+.contact-card { padding: 0; overflow: hidden; }
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 24px;
+  transition: all 0.25s;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+}
+
+.contact-link:hover .contact-link-value { color: var(--accent-cyan); }
+
+.contact-link-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.25s;
+}
+
+.email-icon    { background: rgba(0,212,255,0.1);   color: var(--accent-cyan); border: 1px solid rgba(0,212,255,0.2); }
+.linkedin-icon { background: rgba(0,119,181,0.1);   color: #0077b5;           border: 1px solid rgba(0,119,181,0.2); }
+.github-icon   { background: rgba(255,255,255,0.06); color: var(--text-primary); border: 1px solid var(--border-subtle); }
+.location-icon { background: rgba(124,58,237,0.1);  color: var(--accent-purple); border: 1px solid rgba(124,58,237,0.2); }
+
+.contact-link:hover .email-icon    { box-shadow: 0 0 14px rgba(0,212,255,0.25); }
+.contact-link:hover .linkedin-icon { box-shadow: 0 0 14px rgba(0,119,181,0.25); }
+.contact-link:hover .github-icon   { box-shadow: 0 0 14px rgba(255,255,255,0.1); }
+.contact-link:hover .location-icon { box-shadow: 0 0 14px rgba(124,58,237,0.25); }
+
+.contact-link-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+  margin-bottom: 3px;
+}
+
+.contact-link-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color 0.25s;
+  word-break: break-all;
+}
+
+.contact-cta { text-align: center; }
+
+.contact-cta-btn {
+  font-size: 16px;
+  padding: 14px 36px;
+}
+
+@media (max-width: 600px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
