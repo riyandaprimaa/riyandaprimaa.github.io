@@ -1,21 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { X, ExternalLink, Lock, ChevronLeft, ChevronRight } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import './ProjectDetailModal.css';
 
 export default function ProjectDetailModal({ isOpen, project, onClose, onImageClick }) {
   const [imgIdx, setImgIdx] = useState(0);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
 
   if (!isOpen || !project) return null;
 

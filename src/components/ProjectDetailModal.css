@@ -1,21 +1,28 @@
-/* ── Modal Overlay (Acts as the Scroll Container) ── */
+/* ── Modal Overlay (Acts as the Primary Native Scroll Viewport) ── */
 .modal-overlay {
   position: fixed;
-  inset: 0;
-  z-index: 9000;
-  background: rgba(3, 6, 14, 0.88);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background: rgba(3, 6, 14, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  overflow-y: auto;
+  overflow-y: scroll !important;
   -webkit-overflow-scrolling: touch;
-  padding: 60px 16px 80px;
-  animation: fadeIn 0.2s ease-out;
+  touch-action: pan-y;
+  padding: 40px 16px 80px;
+  pointer-events: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--accent-cyan) #040711;
+  animation: fadeIn 0.2s ease-out;
 }
 
 .modal-overlay::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 .modal-overlay::-webkit-scrollbar-track {
@@ -24,7 +31,7 @@
 
 .modal-overlay::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
 .modal-overlay::-webkit-scrollbar-thumb:hover {
@@ -36,14 +43,15 @@
   position: relative;
   width: 100%;
   max-width: 820px;
-  margin: 0 auto;
+  margin: 10px auto 60px auto;
   background: #080d1a;
-  border: 1px solid var(--border-glow);
+  border: 1.5px solid var(--border-glow);
   border-radius: var(--radius-lg);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 212, 255, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 40px rgba(0, 212, 255, 0.25);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  pointer-events: auto;
 }
 
 .modal-close {
@@ -357,5 +365,5 @@
 @media (max-width: 600px) {
   .modal-body { padding: 20px 16px; }
   .modal-actions { flex-direction: column; }
-  .modal-overlay { padding: 30px 8px 50px; }
+  .modal-overlay { padding: 20px 8px 60px; }
 }
